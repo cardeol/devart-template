@@ -1,4 +1,4 @@
-# ASCII ME  
+# ASCII Mirror
 
 ## Authors
 - Carlos De Oliveira
