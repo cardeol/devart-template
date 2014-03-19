@@ -2,6 +2,8 @@ var videoAscii = (function() {
 
     var charSet = (" .,:;i1tfLCG8@").split("");
     charSet = (" .,:;o8#@").split("");
+    charSet = (".:,;+ijtfLGDKW#").split("");
+
     var clen = charSet.length - 1;
 
     var strFont = "courier new";
@@ -14,18 +16,7 @@ var videoAscii = (function() {
         strResolution: "low"
     }
 
-    var getGrayShade = function(grayValue) {
-        if (grayValue >= 230) return " ";
-        if (grayValue >= 200) return ".";
-        if (grayValue >= 180) return "*";
-        if (grayValue >= 160) return ":";
-        if (grayValue >= 130) return "o";
-        if (grayValue >= 100) return "&";
-        if (grayValue >= 70) return "8";
-        if (grayValue >= 50) return "#";
-        return "@";
-    }
-
+   
     var img2asc = function(oCanvasImg) {
         var oCanvas = document.createElement("canvas");
         if (!oCanvas.getContext) {
@@ -52,8 +43,8 @@ var videoAscii = (function() {
                 break;
         }
 
-        var iWidth = parseInt(Math.round(320 * fResolution));
-        var iHeight = parseInt(Math.round(240 * fResolution));
+        var iWidth = parseInt(Math.round(800 * fResolution));
+        var iHeight = parseInt(Math.round(600 * fResolution));
 
         oCanvas.width = iWidth;
         oCanvas.height = iHeight;
@@ -80,17 +71,17 @@ var videoAscii = (function() {
                     var iBrightIdx = 0;
                 } else {
                     var fBrightness = (0.3 * iRed + 0.59 * iGreen + 0.11 * iBlue) / 255;
-                    //var iCharIdx = (charSet.length - 1) - Math.round(fBrightness * (charSet.length - 1));
+                    var iCharIdx = (charSet.length - 1) - Math.round(fBrightness * (charSet.length - 1));
 
-                    var col = (iRed + iGreen + iBlue) / 3;
-                    var iCharIdx = clen - Math.round((col * clen) / 255);
+                    //var col = (iRed + iGreen + iBlue) / 3;
+                    //var iCharIdx = clen - Math.round((col * clen) / 255);
                 }
 
                 if (options.bInvert) {
                     iCharIdx = (charSet.length - 1) - iCharIdx;
                 }
                 var strThisChar = charSet[iCharIdx];
-                strThisChar = getGrayShade(col);
+                // strThisChar = getGrayShade(col);
                 if (strThisChar == "undefined") continue;
 
                 if (strThisChar == " ")
