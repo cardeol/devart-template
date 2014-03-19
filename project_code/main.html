@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/JavaScript" src="//code.jquery.com/jquery-latest.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script language="JavaScript" src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+<script type="text/JavaScript" src="scripts/videoAscii.js"></script>
+<script src="scripts/scriptcam.js"></script>
+<script src="scripts/main.js"></script>
+</head>
+	<body>
+		<nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>                
+                <a class="navbar-brand home" href="#"><span class="glyphicon glyphicon-eye-open"></span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Style <b class="caret"></b></a>
+			          <ul class="dropdown-menu">
+			            <li><a href="javascript:;" class="options" name="bcolor">Color</a></li>
+			            <li><a href="javascript:;" class="options" name="balpha">Alpha</a></li>
+			            <li><a href="javascript:;" class="options" name="bblock">Block</a></li>
+			            <li><a href="javascript:;" class="options" name="binvert">Invert</a></li>
+			          </ul>
+			        </li>
+			         <li class="dropdown" id="menu_cam">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cameras <b class="caret"></b></a>
+			          <ul class="dropdown-menu" id="sel_cameras">
+			            	
+			          </ul>
+			        </li>
+			         <li>
+			        	<a href="javascript:;" id="start_cam">Start</a>
+			        </li>			       
+                </ul>                                                 
+            </div>
+        </div>
+      </nav>    
+      <div class="container">
+      	<p id="noflash">--</p>
+		<p id="nocamera">No Camera Detected.</p>
+		<div id="content" style="float:left; width:400px">
+			<div style="width:330px" id="main">
+				<div id="webcam" style="display:none;"></div>				
+			</div>			
+		</div>		
+      </div>			
+      <div class="cont">
+      	<div id="result"></div>
+      </div>      
+	</body>
+</html>
