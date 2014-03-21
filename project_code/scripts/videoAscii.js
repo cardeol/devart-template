@@ -8,15 +8,15 @@ var videoAscii = (function() {
 
     var strFont = "courier new";
     var options = {
-        iScale: 2,
+        iScale: 1,
         bColor: true,
         bAlpha: false,
         bBlock: false,
         bInvert: false,
-        strResolution: "low"
+        strResolution: "medium"
     }
 
-   
+
     var img2asc = function(oCanvasImg) {
         var oCanvas = document.createElement("canvas");
         if (!oCanvas.getContext) {
@@ -30,13 +30,13 @@ var videoAscii = (function() {
 
 
 
-        var fResolution = 0.5;
+        var fResolution = 1;
         switch (options.strResolution) {
             case "low":
                 fResolution = 0.25;
                 break;
             case "medium":
-                fResolution = 0.5;
+                fResolution = 0.4;
                 break;
             case "high":
                 fResolution = 1;
@@ -71,7 +71,7 @@ var videoAscii = (function() {
                     var iBrightIdx = 0;
                 } else {
                     var fBrightness = (0.3 * iRed + 0.59 * iGreen + 0.11 * iBlue) / 255;
-                    var iCharIdx = (charSet.length - 1) - Math.round(fBrightness * (charSet.length - 1));
+                    var iCharIdx = Math.round(fBrightness * (charSet.length - 1));
 
                     //var col = (iRed + iGreen + iBlue) / 3;
                     //var iCharIdx = clen - Math.round((col * clen) / 255);
@@ -100,8 +100,8 @@ var videoAscii = (function() {
         }
 
 
-        var fFontSize = (2 / fResolution) * options.iScale;
-        var fLineHeight = (2 / fResolution) * options.iScale;
+        var fFontSize = (2 / fResolution) * options.iScale + 1;
+        var fLineHeight = (2 / fResolution) * options.iScale + 1;
 
         var fLetterSpacing = 0;
         if (options.strResolution == "low") {
@@ -122,7 +122,7 @@ var videoAscii = (function() {
             }
         }
         if (options.strResolution == "medium") {
-            switch (iScale) {
+            switch (options.iScale) {
                 case 1:
                     fLetterSpacing = 0;
                     break;
@@ -180,7 +180,7 @@ var videoAscii = (function() {
         oStyle.textDecoration = "none";
 
         //oImg.parentNode.replaceChild(oAscii, oImg);
-        if (public.onComplete != null) public.onComplete(lines.join(""));
+        if (public.onComplete != null) public.onComplete(oAscii);
     }
 
     var public = {

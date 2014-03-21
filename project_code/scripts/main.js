@@ -54,16 +54,14 @@ $(document).ready(function() {
         $("#result").html(response);
         if (isPlaying) setTimeout(function() {
             initLoop();
-        }, 200);
+        }, 0);
     };
-    $(".options").change(function() {
-        var v = $(this).is(":checked");
+    $(".options").click(function() {
         var type = $(this).attr("name");
-        if (type == "bcolor") videoAscii.setBcolor(v);
-        if (type == "balpha") videoAscii.setBalpha(v);
-        if (type == "bblock") videoAscii.setBblock(v);
-        if (type == "binvert") videoAscii.setBblock(v);
-        return false;
+        var ret = videoAscii.toggleOption(type);
+        $(this).addClass("bold");
+        console.log("click!");
+        return true;
     });
     $(".options").each(function(i, item) {
         var type = $(item).attr("name");
