@@ -4,13 +4,16 @@
             "Web Fonts Developer API"
         ],
         "platforms": [
-            "insert platforms"
+            "linux",
+            "windows",
+            "raspberry pi"
         ],
         "toolkits": [
-            "insert toolkits"
+            "jquery",
+            "angularjs"
         ]
     },
     "themes": [
-        "insert themes"
+        "bootstrap"
     ]
 }
