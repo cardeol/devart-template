@@ -5,11 +5,9 @@
         ],
         "platforms": [
             "linux",
-            "windows",
-            "raspberry pi"
+            "windows"
         ],
         "toolkits": [
-            "jquery",
             "angularjs"
         ]
     },
