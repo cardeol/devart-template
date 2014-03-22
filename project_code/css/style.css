@@ -1,0 +1,44 @@
+body {
+
+}
+
+#noflash,#nocamera {
+	display: none; font-size: 18px; font-weight: bold;
+}
+
+#menu_cam {
+	display: none;
+}
+.menu {
+	float: left;
+	padding: 10px;
+	display: block;
+}
+
+.cont {
+	width: 100%; height: auto; text-align: center;
+}
+
+.feed {
+	float:left; clear: left; padding: 10px;
+}
+
+#result {
+	margin-left: auto; 
+	margin-right: auto; 
+	height: auto; 
+	font-size: 16px;
+	float: right; 
+	font-family: "Courier New", Courier, monospace;
+	padding: 10px;
+}
+
+.results {
+	display: inline; 
+	text-align: left; 
+	text-decoration: none; 
+	white-space: pre; 
+	margin: 0; 
+	font-family: 'Courier New';
+	
+}
