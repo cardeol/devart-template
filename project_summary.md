@@ -2,8 +2,12 @@
 
 ## Authors
 - Carlos De Oliveira
+- @cardeol (github)
 - cardeol@gmail.com 
-- cardeol (github)
+
+- Esteban Garcia Alonso
+- @estebangarciaalonso (github)
+- estebanjgarcia@gmail.com
 
 ## Description
 The main idea is creating a mirror to render video as ASCII characters using Javascript, so when you look at the camera you can see your reflex rendered with a ASCII image with flow.
