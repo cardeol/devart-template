@@ -1,5 +1,11 @@
-# ASCII Mirror
-
+```
+     /\    / ____|/ ____|_   _|_   _| |  \/  |_   _|  __ \|  __ \ / __ \|  __ \ 
+    /  \  | (___ | |      | |   | |   | \  / | | | | |__) | |__) | |  | | |__) |
+   / /\ \  \___ \| |      | |   | |   | |\/| | | | |  _  /|  _  /| |  | |  _  / 
+  / ____ \ ____) | |____ _| |_ _| |_  | |  | |_| |_| | \ \| | \ \| |__| | | \ \ 
+ /_/    \_\_____/ \_____|_____|_____| |_|  |_|_____|_|  \_\_|  \_\\____/|_|  \_\
+```                                                                              
+                                                                                
 ## Authors
 - Carlos De Oliveira - @cardeol (github) - cardeol@gmail.com 
 - Esteban Garcia Alonso - @estebangarciaalonso (github) - estebanjgarcia@gmail.com
