@@ -18,7 +18,7 @@ myApp.controller('mainController', function($scope, $sce) {
     //Patch for the watchCollectionsBug
     $scope.prevOptions = angular.copy($scope.options);
 
-    var aDefaultCharList = (" .,:;i1tfLCG08").split("");
+    var defCharList = (" .:,;+ijtfLGDKW#").split("");
     var matrixMiddleCharLists = [(" .,:;i1tfLCG08").split(""), (" _,-;i1tPTEB0D").split("")];
     var matrixBeginCharList = [String.fromCharCode(0x30D9), String.fromCharCode(0x30DA), String.fromCharCode(0x30DB), String.fromCharCode(0x30DB)];
 
@@ -154,7 +154,7 @@ myApp.controller('mainController', function($scope, $sce) {
             return;
         }
 
-        var charSet = ($scope.options.bColor ? aDefaultColorCharList : aDefaultCharList);
+        var charSet = ($scope.options.bColor ? aDefaultColorCharList : defCharList);
         var fResolution = $scope.options.fResolution;
 
         var iWidth = parseInt(Math.round($scope.options.width * fResolution));
