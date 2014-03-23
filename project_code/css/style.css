@@ -39,3 +39,11 @@ img.responsive {
 	/* font-family: 'Ubuntu Mono'; */
 	padding: 10px;
 }
+
+.fliph {
+	-moz-transform: scale(-1, 1);
+	-webkit-transform: scale(-1, 1);
+	-o-transform: scale(-1, 1);
+	transform: scale(-1, 1);
+	filter: FlipH;
+}

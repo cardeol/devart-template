@@ -4,7 +4,7 @@ myApp.controller('mainController', function($scope, $sce) {
     $scope.rendering = false;
     $scope.options = {
         iScale: 2,
-        flipH: false,
+        flipH: true,
         opt_motion: false,
         opt_block: false,
         opt_invert: false,
@@ -31,8 +31,8 @@ myApp.controller('mainController', function($scope, $sce) {
     var height = parseInt(Math.round($scope.options.height * $scope.options.iScale));
     var currentBackColor = '#FFFFFF';
     var video = document.querySelector('video');
-    var videoCanvas = document.getElementById('videoCanvas');
-    var videoCtx = videoCanvas.getContext('2d');
+    // var videoCanvas = document.getElementById('videoCanvas');
+    // var videoCtx = videoCanvas.getContext('2d');
     var fLineHeight;
     var errorCallback = function(e) {
         console.log('Reeeejected!', e);
@@ -75,11 +75,6 @@ myApp.controller('mainController', function($scope, $sce) {
     });
     $scope.$watchCollection('options', function(newValue, oldValue) {
         oldValue = $scope.prevOptions;
-        if (newValue.flipH != oldValue.flipH) {
-            videoCtx.translate(videoCanvas.width, 0);
-            videoCtx.scale(-1, 1);
-        }
-
 
         if (newValue.opt_matrix != oldValue.opt_matrix) {
             if (newValue.opt_matrix) {
@@ -168,6 +163,7 @@ myApp.controller('mainController', function($scope, $sce) {
         oCanvas.style.height = iHeight;
         oCtx.drawImage(video, 0, 0, iWidth, iHeight);
 
+
         var oImgData = oCtx.getImageData(0, 0, iWidth, iHeight).data;
         var fFontSize = (1.4 / fResolution) * $scope.options.iScale;
         fLineHeight = (1 / fResolution) * $scope.options.iScale;
@@ -185,6 +181,7 @@ myApp.controller('mainController', function($scope, $sce) {
             ctx.fillStyle = currentBackColor;
             ctx.fillRect(0, 0, width, height);
         }
+
         ctx.font = fFontSize + 'pt Courier New';
         for (var y = 0; y < iHeight; y += 2) {
             for (var x = iWidth - 1; x >= 0; x--) {
