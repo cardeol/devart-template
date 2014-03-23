@@ -45,4 +45,4 @@ var bright = (0.299 * Red + 0.587 * Green + 0.114 * Blue)
 [Angularjs](http://angularjs.org/ "Angular JS")
 [Twiiter Bootstrap](http://getbootstrap.com/ "Twitter Bootstrap")
 [W3C Media Capture and Streams](http://dev.w3.org/2011/webrtc/editor/getusermedia.html "W3C Media Captura and Streams")
-
+[HTML Canvas 2D Context](http://www.w3.org/html/wg/drafts/2dcontext/html5_canvas/ "HTML Canvas 2D Context")
