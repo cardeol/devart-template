@@ -65,7 +65,7 @@ myApp.controller('mainController', function($scope, $sce) {
         if ($scope.rendering) {
             setTimeout(function() {
                 $scope.initLoop();
-            }, 10);
+            }, 0);
         }
     };
     $scope.$watch('rendering', function(newValue, oldValue) {
@@ -190,7 +190,7 @@ myApp.controller('mainController', function($scope, $sce) {
                 var iGreen = oImgData[iOffset + 1];
                 var iBlue = oImgData[iOffset + 2];
                 var iAlpha = oImgData[iOffset + 3];
-                var bright = (0.3 * iRed + 0.59 * iGreen + 0.11 * iBlue) / 255;
+                var bright = (0.299 * iRed + 0.587 * iGreen + 0.114 * iBlue) / 255;
                 var cIndex = charsetLengthMinusOne - Math.round(bright * charsetLengthMinusOne);
 
                 if ($scope.options.opt_invert) {
