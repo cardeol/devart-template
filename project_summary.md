@@ -22,12 +22,21 @@ Working on that
 
 [Example Link](http://www.google.com "Example Link")
 
-## Example Code
-NOTE: Wrap your code blocks or any code citation by using ``` like the example below.
+## Getting Webcam String
+All the code is processed in the client side by javascript. We choose to use getUser Media to render a &lt;video&gt; tag in this way.
+
 ```
-function test() {
-  console.log("Printing a test");
-} 
+  navigator.getUserMedia = navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia;
+```
+
+
+Formula in javascript to get a pixel brightness by RGB.
+
+```
+var bright = (0.299 * Red + 0.587 * Green + 0.114 * Blue) 
 ```
 
 ## Links to External Libraries
