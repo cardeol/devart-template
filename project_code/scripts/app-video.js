@@ -5,14 +5,13 @@ myApp.controller('mainController', function($scope, $sce) {
     $scope.options = {
         iScale: 2,
         flipH: false,
-        bmotion: false,
-        bblock: false,
-        binvert: false,
-        bcolor: false,
-        bmatrix: false,
+        opt_motion: false,
+        opt_block: false,
+        opt_invert: false,
+        opt_color: false,
+        opt_matrix: false,
         height: 300,
         width: 400,
-        interval: 10,
         fLetterSpacing: 0,
         fResolution: 0.25,
         strResolution: 'low'
@@ -56,8 +55,9 @@ myApp.controller('mainController', function($scope, $sce) {
     }
 
     $scope.initLoop = function() {
-        videoCtx.drawImage(video, 0, 0, videoCanvas.width, videoCanvas.height);
-        $scope.initVideo(videoCanvas.toDataURL('image/png'));
+        // videoCtx.drawImage(video, 0, 0, videoCanvas.width, videoCanvas.height);
+        // $scope.initVideo(videoCanvas.toDataURL('image/png'));
+        $scope.initVideo();
         //$scope.initVideo(videoCtx.getImageData(0, 0, videoCanvas.width, videoCanvas.height))
     };
 
@@ -65,7 +65,7 @@ myApp.controller('mainController', function($scope, $sce) {
         if ($scope.rendering) {
             setTimeout(function() {
                 $scope.initLoop();
-            }, $scope.options.interval);
+            }, 0);
         }
     };
     $scope.$watch('rendering', function(newValue, oldValue) {
@@ -81,10 +81,10 @@ myApp.controller('mainController', function($scope, $sce) {
         }
 
 
-        if (newValue.bmatrix != oldValue.bmatrix) {
-            if (newValue.bmatrix) {
-                $scope.options.binvert = true;
-                $scope.options.bblock = false;
+        if (newValue.opt_matrix != oldValue.opt_matrix) {
+            if (newValue.opt_matrix) {
+                $scope.options.opt_invert = true;
+                $scope.options.opt_block = false;
                 $scope.initMatrixSnakes();
                 currentBackColor = 'rgba(0,0,0,1)';
             } else {
@@ -105,7 +105,7 @@ myApp.controller('mainController', function($scope, $sce) {
             if (newValue.strResolution === "high") {
                 $scope.options.fResolution = 1;
             }
-            if (newValue.bmatrix) {
+            if (newValue.opt_matrix) {
                 $scope.initMatrixSnakes();
             }
         }
@@ -139,17 +139,6 @@ myApp.controller('mainController', function($scope, $sce) {
         }
     };
 
-    $scope.initVideo = function(rData) {
-        var oCanvasImg = new Image();
-        oCanvasImg.src = rData;
-        if (oCanvasImg.complete) {
-            $scope.img2asc(oCanvasImg);
-        } else {
-            oCanvasImg.onload = function() {
-                $scope.img2asc(oCanvasImg);
-            };
-        }
-    };
 
     $scope.drawChar = function(c, x, y) {
         if (typeof c == "undefined") return;
@@ -157,16 +146,18 @@ myApp.controller('mainController', function($scope, $sce) {
         var old = "h";
         if (imgHash.hasOwnProperty(cKey)) {
             old = imgHash[cKey];
-            if (c == old && $scope.options.bmotion == true) return false;
+            if (c == old && $scope.options.opt_motion == true) {
+                return false;
+            }
+            ctx.fillText(c, x, y);
         }
         imgHash[cKey] = c;
         ctx.fillText(c, x, y);
     }
 
-    $scope.img2asc = function(oCanvasImg) {
-        var charSet = ($scope.options.bColor ? aDefaultColorCharList : defCharList);
+    $scope.initVideo = function() {
+        var charSet = ($scope.options.opt_color ? aDefaultColorCharList : defCharList);
         var fResolution = $scope.options.fResolution;
-
         var iWidth = parseInt(Math.round($scope.options.width * fResolution));
         var iHeight = parseInt(Math.round($scope.options.height * fResolution));
 
@@ -175,7 +166,7 @@ myApp.controller('mainController', function($scope, $sce) {
         oCanvas.style.display = "none";
         oCanvas.style.width = iWidth;
         oCanvas.style.height = iHeight;
-        oCtx.drawImage(oCanvasImg, 0, 0, iWidth, iHeight);
+        oCtx.drawImage(video, 0, 0, iWidth, iHeight);
 
         var oImgData = oCtx.getImageData(0, 0, iWidth, iHeight).data;
         var fFontSize = (1.4 / fResolution) * $scope.options.iScale;
@@ -183,15 +174,14 @@ myApp.controller('mainController', function($scope, $sce) {
 
         var charsetLengthMinusOne = (charSet.length - 1);
 
-
-        if ($scope.options.bmatrix) {
+        if ($scope.options.opt_matrix) {
             angular.forEach($scope.matrixSnakes, function(value) {
                 value.step();
             });
             ctx.fillStyle = 'rgba(0,0,0,.30)';
             ctx.fillRect(0, 0, width, height);
             ctx.fillStyle = '#0F0';
-        } else if (!$scope.options.bblock) {
+        } else if (!$scope.options.opt_block) {
             ctx.fillStyle = currentBackColor;
             ctx.fillRect(0, 0, width, height);
         }
@@ -203,20 +193,20 @@ myApp.controller('mainController', function($scope, $sce) {
                 var iGreen = oImgData[iOffset + 1];
                 var iBlue = oImgData[iOffset + 2];
                 var iAlpha = oImgData[iOffset + 3];
-                var fBrightness = (0.3 * iRed + 0.59 * iGreen + 0.11 * iBlue) / 255;
-                var iCharIdx = charsetLengthMinusOne - Math.round(fBrightness * charsetLengthMinusOne);
+                var bright = (0.3 * iRed + 0.59 * iGreen + 0.11 * iBlue) / 255;
+                var cIndex = charsetLengthMinusOne - Math.round(bright * charsetLengthMinusOne);
 
-                if ($scope.options.binvert) {
-                    iCharIdx = charsetLengthMinusOne - iCharIdx;
+                if ($scope.options.opt_invert) {
+                    cIndex = charsetLengthMinusOne - cIndex;
                 }
-                var strThisChar = charSet[iCharIdx];
+                var strThisChar = charSet[cIndex];
                 if (strThisChar === undefined)
                     continue;
 
-                if ($scope.options.bblock) {
+                if ($scope.options.opt_block) {
                     ctx.fillStyle = 'rgba(' + iRed + ',' + iGreen + ',' + iBlue + ',' + iAlpha + ')';
                     ctx.fillRect(x * fLineHeight, y * fLineHeight, fLineHeight, fLineHeight * 2);
-                } else if ($scope.options.bmatrix) {
+                } else if ($scope.options.opt_matrix) {
                     var index = $scope.matrixSnakes[x].index();
                     var len = $scope.matrixSnakes[x].len;
                     if (index > y && index < y + 4) {
@@ -224,16 +214,16 @@ myApp.controller('mainController', function($scope, $sce) {
                         $scope.drawChar(matrixBeginCharList[y % matrixBeginCharList.length], x * fLineHeight, y * fLineHeight);
                         // ctx.fillText(matrixBeginCharList[y % matrixBeginCharList.length], x * fLineHeight, y * fLineHeight);
                     } else if (index > y && index > 0 && ((index - len) < y)) {
-                        if ($scope.options.bcolor) {
+                        if ($scope.options.opt_color) {
                             ctx.fillStyle = 'rgba(' + iRed + ',' + iGreen + ',' + iBlue + ',' + iAlpha + ')';
                         } else {
                             ctx.fillStyle = '#0F0';
                         }
-                        strThisChar = matrixMiddleCharLists[index % matrixMiddleCharLists.length][iCharIdx];
+                        strThisChar = matrixMiddleCharLists[index % matrixMiddleCharLists.length][cIndex];
                         $scope.drawChar(strThisChar, x * fLineHeight, y * fLineHeight);
                     }
                 } else {
-                    if ($scope.options.bcolor) {
+                    if ($scope.options.opt_color) {
                         ctx.fillStyle = 'rgba(' + iRed + ',' + iGreen + ',' + iBlue + ',1)';
                     } else {
                         ctx.fillStyle = '#000';
