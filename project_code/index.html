@@ -20,12 +20,12 @@
 				<h4>Dynamic Rendering options</h4>
 				<p>Modes</p>
 				<div class="btn-group">
-					<label type="button" class="btn btn-primary" ng-model="options.opt_motion" btn-checkbox>Motion</label>
-					<label type="button" class="btn btn-primary" ng-model="options.flipH" btn-checkbox>Flip Horiz</label>
-					<label type="button" class="btn btn-primary" ng-model="options.opt_block" btn-checkbox>Block</label>
-					<label type="button" class="btn btn-primary" ng-model="options.opt_invert" btn-checkbox>Invert</label>
-					<label type="button" class="btn btn-primary" ng-model="options.opt_color" btn-checkbox>Color</label>
-					<label type="button" class="btn btn-primary" ng-model="options.opt_matrix" btn-checkbox>Matrix</label>					
+					<label type="button" class="btn btn-primary" title"Motion Detection" ng-model="options.opt_motion" btn-checkbox>Motion</label>
+					<label type="button" class="btn btn-primary" title="Flip Horizontally" ng-model="options.flipH" btn-checkbox>Flip Horiz</label>
+					<label type="button" class="btn btn-primary" title="Show in Blocks (blank spaces)" ng-model="options.opt_block" btn-checkbox>Block</label>
+					<label type="button" class="btn btn-primary" title="Invert Colors" ng-model="options.opt_invert" btn-checkbox>Invert</label>
+					<label type="button" class="btn btn-primary" title="Color or Monochrome" ng-model="options.opt_color" btn-checkbox>Color</label>
+					<label type="button" class="btn btn-primary" title="Matrix Theme" ng-model="options.opt_matrix" btn-checkbox>Matrix</label>					
 
 				</div>
 				<p>Resolution</p>
@@ -43,12 +43,12 @@
 				</div>
 			</div>
 			<div class="col-md-9 pull-right">
-				<canvas id="q" width="800" height="600">Sorry Browser Won't Support</canvas><br/><br/>
+				<canvas ng-class="{'fliph': options.flipH}" id="q" width="800" height="600">Sorry Browser Won't Support</canvas><br/><br/>
 			</div>			
 		</div>
 		<div class="row">
 			<div class="col-md-4 pull-left">
-				<video width="400" height="300" autoplay></video>
+				<video style="display:none"  width="4" height="3" autoplay></video>
 				<canvas id="videoCanvas" style="display: none;" width="400" height="300" ></canvas>
 			</div>
 		</div>
