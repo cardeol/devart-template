@@ -25,7 +25,7 @@ NOTE: Wrap your code blocks or any code citation by using ``` like the example b
 ```
 function test() {
   console.log("Printing a test");
-}
+} 
 ```
 
 ## Links to External Libraries
