@@ -11,7 +11,10 @@
 - Esteban Garcia Alonso - @estebangarciaalonso (github) - estebanjgarcia@gmail.com
 
 ## Description
-The main idea is creating a mirror to render video as ASCII characters using Javascript, so when you look at the camera you can see your reflex rendered with a ASCII image with flow.
+The main idea is creating a mirror to render video as ASCII characters using Javascript, so when you look at the camera you can see a video stream rendered in ASCII.
+
+
+![Example Image](https://raw.githubusercontent.com/cardeol/devart-template/master/project_images/womanascii.jpg "ASCII Video rendered in realtime")
 
 
 ## Link to Prototype
@@ -24,7 +27,7 @@ NOTE: Wrap your code blocks or any code citation by using ``` like the example b
 ```
 function test() {
   console.log("Printing a test");
-}
+} 
 ```
 
 ## Links to External Libraries
