@@ -14,7 +14,9 @@
 The main idea is creating a mirror to render video as ASCII characters using Javascript, so when you look at the camera you can see a video stream rendered in ASCII.
 
 <p align="center">
+
 ![Example Image](https://raw.githubusercontent.com/cardeol/devart-template/master/project_images/womanascii.jpg "ASCII Video rendered in realtime")
+
 </p>
 
 ## Link to Prototype
