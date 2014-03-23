@@ -3,6 +3,7 @@
 <html ng-app="app">
 <head>
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/style.css" />
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.2/angular.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.2/angular-resource.min.js"></script>
@@ -11,39 +12,45 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap.min.js"></script>
 <script src="scripts/app-video.js"></script>
 </head>
-<body ng-controller="mainController">
-	<div id="result">
-		<canvas id="q" width="800" height="600">Sorry Browser Won't Support</canvas><br/><br/>
-	</div>
-	<div id="content" style="width: 100%">
-		<div class="menu">
-			<h2>Dynamic Rendering options</h2>
-			<h4>Modes</h4>
-			<div class="btn-group">
-				<label type="button" class="btn btn-primary" ng-model="options.flipH" btn-checkbox>Flip H</label>
-				<label type="button" class="btn btn-primary" ng-model="options.bblock" btn-checkbox>Block</label>
-				<label type="button" class="btn btn-primary" ng-model="options.binvert" btn-checkbox>Invert</label>
-				<label type="button" class="btn btn-primary" ng-model="options.bcolor" btn-checkbox>Color</label>
-				<label type="button" class="btn btn-primary" ng-model="options.bmatrix" btn-checkbox>Matrix</label>
+<body ng-controller="mainController">	
+	<div id="content">
+		<div class="row">
+			<div class="col-md-3 pull-left">
+				<img src="img/logo.jpg" width="611" height="129" class="responsive" />
+				<h2>Dynamic Rendering options</h2>
+				<h4>Modes</h4>
+				<div class="btn-group">
+					<label type="button" class="btn btn-primary" ng-model="options.flipH" btn-checkbox>Flip H</label>
+					<label type="button" class="btn btn-primary" ng-model="options.bblock" btn-checkbox>Block</label>
+					<label type="button" class="btn btn-primary" ng-model="options.binvert" btn-checkbox>Invert</label>
+					<label type="button" class="btn btn-primary" ng-model="options.bcolor" btn-checkbox>Color</label>
+					<label type="button" class="btn btn-primary" ng-model="options.bmatrix" btn-checkbox>Matrix</label>
+				</div>
+				<h4>Resolution</h4>
+				<div class="btn-group">
+					<button type="button" class="btn btn-primary" ng-model="options.strResolution" btn-radio="'low'">Low</button>
+					<button type="button" class="btn btn-primary" ng-model="options.strResolution" btn-radio="'medium'">Medium</button>
+					<button type="button" class="btn btn-primary" ng-model="options.strResolution" btn-radio="'high'">High</button>
+				</div>
+				<h4>Render</h4>
+				<div class="btn-group" ng-show="!rendering">
+					<button type="button" class="btn btn-primary" ng-model="rendering" btn-radio="true">Start Rendering</button>
+				</div>
+				<div class="btn-group" ng-show="rendering">
+					<button type="button" class="btn btn-primary" ng-model="rendering" btn-radio="false">Stop Rendering</button>
+				</div>
 			</div>
-			<h4>Resolution</h4>
-			<div class="btn-group">
-				<button type="button" class="btn btn-primary" ng-model="options.strResolution" btn-radio="'low'">Low</button>
-				<button type="button" class="btn btn-primary" ng-model="options.strResolution" btn-radio="'medium'">Medium</button>
-				<button type="button" class="btn btn-primary" ng-model="options.strResolution" btn-radio="'high'">High</button>
-			</div>
-			<h4>Render</h4>
-			<div class="btn-group" ng-show="!rendering">
-				<button type="button" class="btn btn-primary" ng-model="rendering" btn-radio="true">Start Rendering</button>
-			</div>
-			<div class="btn-group" ng-show="rendering">
-				<button type="button" class="btn btn-primary" ng-model="rendering" btn-radio="false">Stop Rendering</button>
+			<div class="col-md-9 pull-right">
+				<canvas id="q" width="800" height="600">Sorry Browser Won't Support</canvas><br/><br/>
+			</div>			
+		</div>
+		<div class="row">
+			<div class="col-md-4 pull-left">
+				<video width="400" height="300" autoplay></video>
+				<canvas id="videoCanvas" style="display: none;" width="400" height="300" ></canvas>
 			</div>
 		</div>
-		<div class="feed" style="float: left;">
-			<video width="400" height="300" autoplay></video>
-			<canvas id="videoCanvas" style="display: none;" width="400" height="300" ></canvas>
-		</div>
+
 	</div>
 </body>
 </html>

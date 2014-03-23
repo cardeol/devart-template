@@ -1,5 +1,6 @@
 body {
-
+	font-family: 'Ubuntu Mono';
+    font-size: 48px;
 }
 
 #noflash,#nocamera {
@@ -9,12 +10,16 @@ body {
 #menu_cam {
 	display: none;
 }
-.menu {
-	float: left;
-	padding: 10px;
-	display: block;
+img.responsive {
+	width: 100%;
+	height: auto;
 }
 
+#content {
+	width: 100%; 
+	margin-left: 10px;
+	margin-right: 10px;
+}
 .cont {
 	width: 100%; height: auto; text-align: center;
 }
@@ -29,16 +34,7 @@ body {
 	height: auto; 
 	font-size: 16px;
 	float: right; 
-	font-family: "Courier New", Courier, monospace;
+	/* font-family: "Courier New", Courier, monospace; */
+	/* font-family: 'Ubuntu Mono'; */
 	padding: 10px;
-}
-
-.results {
-	display: inline; 
-	text-align: left; 
-	text-decoration: none; 
-	white-space: pre; 
-	margin: 0; 
-	font-family: 'Courier New';
-	
 }

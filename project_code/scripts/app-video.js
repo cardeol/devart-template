@@ -11,6 +11,7 @@ myApp.controller('mainController', function($scope, $sce) {
         bmatrix: false,
         height: 300,
         width: 400,
+        interval: 10,
         fLetterSpacing: 0,
         fResolution: 0.25,
         strResolution: 'low'
@@ -21,7 +22,10 @@ myApp.controller('mainController', function($scope, $sce) {
     var defCharList = (" .:,;+ijtfLGDKW#").split("");
     var matrixMiddleCharLists = [(" .,:;i1tfLCG08").split(""), (" _,-;i1tPTEB0D").split("")];
     var matrixBeginCharList = [String.fromCharCode(0x30D9), String.fromCharCode(0x30DA), String.fromCharCode(0x30DB), String.fromCharCode(0x30DB)];
-
+    var ctx = q.getContext('2d');
+    var oCanvas = document.createElement("canvas");
+    var oCtx = oCanvas.getContext("2d");
+    var imgHash;
     var aDefaultColorCharList = (" CGO08@").split("");
     var width = parseInt(Math.round($scope.options.width * $scope.options.iScale));
     var height = parseInt(Math.round($scope.options.height * $scope.options.iScale));
@@ -52,23 +56,23 @@ myApp.controller('mainController', function($scope, $sce) {
     $scope.initLoop = function() {
         videoCtx.drawImage(video, 0, 0, videoCanvas.width, videoCanvas.height);
         $scope.initVideo(videoCanvas.toDataURL('image/png'));
+        //$scope.initVideo(videoCtx.getImageData(0, 0, videoCanvas.width, videoCanvas.height))
     };
 
     $scope.onComplete = function() {
         if ($scope.rendering) {
             setTimeout(function() {
                 $scope.initLoop();
-            }, 10);
+            }, $scope.options.interval);
         }
     };
     $scope.$watch('rendering', function(newValue, oldValue) {
-        if (newValue) {
+        if (newValue == true) {
             $scope.initLoop();
         }
     });
     $scope.$watchCollection('options', function(newValue, oldValue) {
         oldValue = $scope.prevOptions;
-        var ctx = q.getContext('2d');
         if (newValue.flipH != oldValue.flipH) {
             videoCtx.translate(videoCanvas.width, 0);
             videoCtx.scale(-1, 1);
@@ -144,16 +148,13 @@ myApp.controller('mainController', function($scope, $sce) {
         }
     };
 
-    $scope.img2asc = function(oCanvasImg) {
-        var oCanvas = document.createElement("canvas");
-        if (!oCanvas.getContext) {
-            return;
-        }
-        var oCtx = oCanvas.getContext("2d");
-        if (!oCtx.getImageData) {
-            return;
-        }
+    $scope.drawChar = function(c, x, y) {
+        if (typeof c == "undefined") return;
+        if (y > 40) console.log(x + " " + y);
+        ctx.fillText(c, x, y);
+    }
 
+    $scope.img2asc = function(oCanvasImg) {
         var charSet = ($scope.options.bColor ? aDefaultColorCharList : defCharList);
         var fResolution = $scope.options.fResolution;
 
@@ -165,7 +166,6 @@ myApp.controller('mainController', function($scope, $sce) {
         oCanvas.style.display = "none";
         oCanvas.style.width = iWidth;
         oCanvas.style.height = iHeight;
-
         oCtx.drawImage(oCanvasImg, 0, 0, iWidth, iHeight);
 
         var oImgData = oCtx.getImageData(0, 0, iWidth, iHeight).data;
@@ -173,7 +173,6 @@ myApp.controller('mainController', function($scope, $sce) {
         var fLineHeight = (1 / fResolution) * $scope.options.iScale;
 
         var charsetLengthMinusOne = (charSet.length - 1);
-        var ctx = q.getContext('2d');
 
         if ($scope.options.bmatrix) {
             angular.forEach($scope.matrixSnakes, function(value) {
@@ -212,7 +211,8 @@ myApp.controller('mainController', function($scope, $sce) {
                     var len = $scope.matrixSnakes[x].len;
                     if (index > y && index < y + 4) {
                         ctx.fillStyle = '#FFF';
-                        ctx.fillText(matrixBeginCharList[y % matrixBeginCharList.length], x * fLineHeight, y * fLineHeight);
+                        $scope.drawChar(matrixBeginCharList[y % matrixBeginCharList.length], x * fLineHeight, y * fLineHeight);
+                        // ctx.fillText(matrixBeginCharList[y % matrixBeginCharList.length], x * fLineHeight, y * fLineHeight);
                     } else if (index > y && index > 0 && ((index - len) < y)) {
                         if ($scope.options.bcolor) {
                             ctx.fillStyle = 'rgba(' + iRed + ',' + iGreen + ',' + iBlue + ',' + iAlpha + ')';
@@ -220,7 +220,7 @@ myApp.controller('mainController', function($scope, $sce) {
                             ctx.fillStyle = '#0F0';
                         }
                         strThisChar = matrixMiddleCharLists[index % matrixMiddleCharLists.length][iCharIdx];
-                        ctx.fillText(strThisChar, x * fLineHeight, y * fLineHeight);
+                        $scope.drawChar(strThisChar, x * fLineHeight, y * fLineHeight);
                     }
                 } else {
                     if ($scope.options.bcolor) {
@@ -228,7 +228,7 @@ myApp.controller('mainController', function($scope, $sce) {
                     } else {
                         ctx.fillStyle = '#000';
                     }
-                    ctx.fillText(strThisChar, x * fLineHeight, y * fLineHeight);
+                    $scope.drawChar(strThisChar, x * fLineHeight, y * fLineHeight);
                 }
             }
         }
