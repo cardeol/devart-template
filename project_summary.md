@@ -13,7 +13,7 @@
 ## Description
 The main idea is creating a mirror to render video as ASCII characters using Javascript, so when you look at the camera you can see your reflex rendered with a ASCII image with flow.
 
-![Example Image](http://raw.githubusercontent.com/cardeol/devart-template/master/project_images/cover.jpg "ASCII Image rendered in realtime")
+![Example Image](https://raw.githubusercontent.com/cardeol/devart-template/master/project_images/womanascii.jpg "ASCII Image rendered in realtime")
 
 ## Link to Prototype
 Working on that
