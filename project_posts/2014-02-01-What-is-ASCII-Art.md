@@ -25,7 +25,7 @@ Essentially, ASCII art is creating graphics from ASCII codes, motivated by a nee
                   ``-------''
 ```
 
-<b>Alice in Wonderland</b> was published a few years before the typewriter was invented. Therefore it can be considered as one of the firest printed text art creations.
+<b>Alice in Wonderland</b> was published a few years before the typewriter was invented. Therefore it can be considered as one of the first printed text art creations.
 
 The following tail of a mouse is from Chapter III, "A Caucus Race and a Long Tale": 
 ```
