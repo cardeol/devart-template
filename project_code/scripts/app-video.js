@@ -5,6 +5,7 @@ myApp.controller('mainController', function($scope, $sce) {
     $scope.options = {
         iScale: 2,
         flipH: false,
+        bmotion: false,
         bblock: false,
         binvert: false,
         bcolor: false,
@@ -25,7 +26,7 @@ myApp.controller('mainController', function($scope, $sce) {
     var ctx = q.getContext('2d');
     var oCanvas = document.createElement("canvas");
     var oCtx = oCanvas.getContext("2d");
-    var imgHash;
+    var imgHash = {};
     var aDefaultColorCharList = (" CGO08@").split("");
     var width = parseInt(Math.round($scope.options.width * $scope.options.iScale));
     var height = parseInt(Math.round($scope.options.height * $scope.options.iScale));
@@ -33,6 +34,7 @@ myApp.controller('mainController', function($scope, $sce) {
     var video = document.querySelector('video');
     var videoCanvas = document.getElementById('videoCanvas');
     var videoCtx = videoCanvas.getContext('2d');
+    var fLineHeight;
     var errorCallback = function(e) {
         console.log('Reeeejected!', e);
     };
@@ -77,6 +79,7 @@ myApp.controller('mainController', function($scope, $sce) {
             videoCtx.translate(videoCanvas.width, 0);
             videoCtx.scale(-1, 1);
         }
+
 
         if (newValue.bmatrix != oldValue.bmatrix) {
             if (newValue.bmatrix) {
@@ -150,7 +153,13 @@ myApp.controller('mainController', function($scope, $sce) {
 
     $scope.drawChar = function(c, x, y) {
         if (typeof c == "undefined") return;
-        if (y > 40) console.log(x + " " + y);
+        var cKey = x + "." + y;
+        var old = "h";
+        if (imgHash.hasOwnProperty(cKey)) {
+            old = imgHash[cKey];
+            if (c == old && $scope.options.bmotion == true) return false;
+        }
+        imgHash[cKey] = c;
         ctx.fillText(c, x, y);
     }
 
@@ -170,9 +179,10 @@ myApp.controller('mainController', function($scope, $sce) {
 
         var oImgData = oCtx.getImageData(0, 0, iWidth, iHeight).data;
         var fFontSize = (1.4 / fResolution) * $scope.options.iScale;
-        var fLineHeight = (1 / fResolution) * $scope.options.iScale;
+        fLineHeight = (1 / fResolution) * $scope.options.iScale;
 
         var charsetLengthMinusOne = (charSet.length - 1);
+
 
         if ($scope.options.bmatrix) {
             angular.forEach($scope.matrixSnakes, function(value) {

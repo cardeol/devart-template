@@ -17,22 +17,24 @@
 		<div class="row">
 			<div class="col-md-3 pull-left">
 				<img src="img/logo.jpg" width="611" height="129" class="responsive" />
-				<h2>Dynamic Rendering options</h2>
-				<h4>Modes</h4>
+				<h4>Dynamic Rendering options</h4>
+				<p>Modes</p>
 				<div class="btn-group">
-					<label type="button" class="btn btn-primary" ng-model="options.flipH" btn-checkbox>Flip H</label>
+					<label type="button" class="btn btn-primary" ng-model="options.bmotion" btn-checkbox>Motion</label>
+					<label type="button" class="btn btn-primary" ng-model="options.flipH" btn-checkbox>Flip Horiz</label>
 					<label type="button" class="btn btn-primary" ng-model="options.bblock" btn-checkbox>Block</label>
 					<label type="button" class="btn btn-primary" ng-model="options.binvert" btn-checkbox>Invert</label>
 					<label type="button" class="btn btn-primary" ng-model="options.bcolor" btn-checkbox>Color</label>
-					<label type="button" class="btn btn-primary" ng-model="options.bmatrix" btn-checkbox>Matrix</label>
+					<label type="button" class="btn btn-primary" ng-model="options.bmatrix" btn-checkbox>Matrix</label>					
+
 				</div>
-				<h4>Resolution</h4>
+				<p>Resolution</p>
 				<div class="btn-group">
 					<button type="button" class="btn btn-primary" ng-model="options.strResolution" btn-radio="'low'">Low</button>
 					<button type="button" class="btn btn-primary" ng-model="options.strResolution" btn-radio="'medium'">Medium</button>
 					<button type="button" class="btn btn-primary" ng-model="options.strResolution" btn-radio="'high'">High</button>
 				</div>
-				<h4>Render</h4>
+				<p>Render</p>
 				<div class="btn-group" ng-show="!rendering">
 					<button type="button" class="btn btn-primary" ng-model="rendering" btn-radio="true">Start Rendering</button>
 				</div>
