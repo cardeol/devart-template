@@ -21,7 +21,10 @@ The main idea is creating a mirror to render video as ASCII characters using Jav
 
 [index.html](https://dl.dropboxusercontent.com/u/11648849/ascii/index.html "index.html")
 
-## Getting Webcam String
+## Getting the Video Stream
+
+We were using a flash proxy in the beginning to capture a video stream and send it to a html5 img using javascript with a bas64 src. We have changed to a better scheme using getUserMedia (available in modern browsers).
+
 All the code is processed in the client side by javascript. We choose to use getUser Media to render a &lt;video&gt; tag in this way.
 
 ```
