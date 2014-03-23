@@ -65,7 +65,7 @@ myApp.controller('mainController', function($scope, $sce) {
         if ($scope.rendering) {
             setTimeout(function() {
                 $scope.initLoop();
-            }, 0);
+            }, 10);
         }
     };
     $scope.$watch('rendering', function(newValue, oldValue) {
