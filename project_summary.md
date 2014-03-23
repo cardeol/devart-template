@@ -42,8 +42,7 @@ var bright = (0.299 * Red + 0.587 * Green + 0.114 * Blue)
 ## Links to External Libraries
  NOTE: You can also use this space to link to external libraries or Github repositories you used on your project.
 
-[Example Link](http://www.google.com "Example Link")
-
-## Images & Videos
-NOTE: For additional images you can either use a relative link to an image on this repo or an absolute link to an externally hosted image.
+[Angularjs](http://angularjs.org/ "Angular JS")
+[Twiiter Bootstrap](http://getbootstrap.com/ "Twitter Bootstrap")
+[W3C Media Capture and Streams](http://dev.w3.org/2011/webrtc/editor/getusermedia.html "W3C Media Captura and Streams")
 

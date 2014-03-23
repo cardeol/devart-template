@@ -51,14 +51,11 @@ myApp.controller('mainController', function($scope, $sce) {
             video.src = window.URL.createObjectURL(stream);
         }, errorCallback);
     } else {
-        video.src = 'somevideo.webm'; // TODO Implement fallback.
+        video.src = 'somevideo.webm';
     }
 
     $scope.initLoop = function() {
-        // videoCtx.drawImage(video, 0, 0, videoCanvas.width, videoCanvas.height);
-        // $scope.initVideo(videoCanvas.toDataURL('image/png'));
         $scope.initVideo();
-        //$scope.initVideo(videoCtx.getImageData(0, 0, videoCanvas.width, videoCanvas.height))
     };
 
     $scope.onComplete = function() {
