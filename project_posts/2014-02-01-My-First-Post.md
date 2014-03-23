@@ -1,5 +1,8 @@
+This project is being created as a tribute to the old-fashioned ASCII Art, rendering a video stream using a Webcam converting into ASCII symbols using Angularjs and HTML5. The main idea is using a landscape vertical TV with a web browser and a camera to provide a kind of mirror view with an ASCII perspective.
 
-This project was created as a tribute to the old-fashioned ASCII Art, 
+
+
+
 
 
 ## ASCII Codes
