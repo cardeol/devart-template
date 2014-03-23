@@ -17,10 +17,9 @@ The main idea is creating a mirror to render video as ASCII characters using Jav
 ![Example Image](https://raw.githubusercontent.com/cardeol/devart-template/master/project_images/womanascii.jpg "ASCII Video rendered in realtime")
 
 
-## Link to Prototype
-Working on that
+## Link to Prototype (best experience in Chrome)
 
-[Example Link](http://www.google.com "Example Link")
+[index.html](https://dl.dropboxusercontent.com/u/11648849/ascii/index.html "index.html")
 
 ## Getting Webcam String
 All the code is processed in the client side by javascript. We choose to use getUser Media to render a &lt;video&gt; tag in this way.
