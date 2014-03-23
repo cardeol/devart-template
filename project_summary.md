@@ -13,6 +13,7 @@
 ## Description
 The main idea is creating a mirror to render video as ASCII characters using Javascript, so when you look at the camera you can see your reflex rendered with a ASCII image with flow.
 
+![Example Image](../project_images/womanascii.jpg?raw=true "ASCII Image rendered in realtime")
 
 ## Link to Prototype
 Working on that
