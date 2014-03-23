@@ -1,5 +1,8 @@
-## ASCII Codes
 
+This project was created as a tribute to the old-fashioned ASCII Art, 
+
+
+## ASCII Codes
 
 ASCII stand for "American Standard Code for Information Interchange".
 
