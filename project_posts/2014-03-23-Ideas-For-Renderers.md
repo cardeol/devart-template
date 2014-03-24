@@ -1,6 +1,6 @@
 We were thinking in new renderers for this project, things like:
 
-### 8 bit renderer ### 
+### 8 bit renderer ###
 
 The main idea is to simulate the games of the 80's. It should be easy, just activating block mode and reducing to colors to an 8-bit palette.
 
