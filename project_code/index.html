@@ -14,34 +14,34 @@
 <body ng-controller="mainController">	
 	<div id="content">
 		<div class="row">
-			<div class="col-md-3 pull-left">
-				<h3>ASC ME!</h3>				
+			<div class="col-md-4 pull-left">
+				<h1>ASCME!</h1>				
 				<h4>Dynamic Rendering options</h4>
-				<p>Modes</p>
+				<h4>Modes</h4>
 				<div class="btn-group">
-					<label type="button" class="btn btn-primary" title"Motion Detection" ng-model="options.opt_motion" btn-checkbox>Motion</label>
-					<label type="button" class="btn btn-primary" title="Flip Horizontally" ng-model="options.flipH" btn-checkbox>Flip Horiz</label>
-					<label type="button" class="btn btn-primary" title="Show in Blocks (blank spaces)" ng-model="options.opt_block" btn-checkbox>Block</label>
-					<label type="button" class="btn btn-primary" title="Invert Colors" ng-model="options.opt_invert" btn-checkbox>Invert</label>
-					<label type="button" class="btn btn-primary" title="Color or Monochrome" ng-model="options.opt_color" btn-checkbox>Color</label>
-					<label type="button" class="btn btn-primary" title="Matrix Theme" ng-model="options.opt_matrix" btn-checkbox>Matrix</label>					
+					<label type="button" class="btn btn-primary btn-xs" title"Motion Detection" ng-model="options.opt_motion" btn-checkbox>Motion</label>
+					<label type="button" class="btn btn-primary btn-xs" title="Flip Horizontally" ng-model="options.flipH" btn-checkbox>Flip Horiz</label>
+					<label type="button" class="btn btn-primary btn-xs" title="Show in Blocks (blank spaces)" ng-model="options.opt_block" btn-checkbox>Block</label>
+					<label type="button" class="btn btn-primary btn-xs" title="Invert Colors" ng-model="options.opt_invert" btn-checkbox>Invert</label>
+					<label type="button" class="btn btn-primary btn-xs" title="Color or Monochrome" ng-model="options.opt_color" btn-checkbox>Color</label>
+					<label type="button" class="btn btn-primary btn-xs" title="Matrix Theme" ng-model="options.opt_matrix" btn-checkbox>Matrix</label>					
 
 				</div>
-				<p>Resolution</p>
+				<h4>Resolution</h4>
 				<div class="btn-group">
-					<button type="button" class="btn btn-primary" ng-model="options.strResolution" btn-radio="'low'">Low</button>
-					<button type="button" class="btn btn-primary" ng-model="options.strResolution" btn-radio="'medium'">Medium</button>
-					<button type="button" class="btn btn-primary" ng-model="options.strResolution" btn-radio="'high'">High</button>
+					<button type="button" class="btn btn-primary btn-xs" ng-model="options.strResolution" btn-radio="'low'">Low</button>
+					<button type="button" class="btn btn-primary btn-xs" ng-model="options.strResolution" btn-radio="'medium'">Medium</button>
+					<button type="button" class="btn btn-primary btn-xs" ng-model="options.strResolution" btn-radio="'high'">High</button>
 				</div>
-				<p>Render</p>
+				<h4>Render</h4>
 				<div class="btn-group" ng-show="!rendering">
-					<button type="button" class="btn btn-primary" ng-model="rendering" btn-radio="true">Start Rendering</button>
+					<button type="button" class="btn btn-primary btn-xs" ng-model="rendering" btn-radio="true">Start Rendering</button>
 				</div>
 				<div class="btn-group" ng-show="rendering">
-					<button type="button" class="btn btn-primary" ng-model="rendering" btn-radio="false">Stop Rendering</button>
+					<button type="button" class="btn btn-primary btn-xs" ng-model="rendering" btn-radio="false">Stop Rendering</button>
 				</div>
 			</div>
-			<div class="col-md-9 pull-right">
+			<div class="col-md-8 pull-right">
 				<canvas ng-class="{'fliph': options.flipH}" id="q" width="800" height="600">Sorry Browser Won't Support</canvas><br/><br/>
 			</div>			
 		</div>
