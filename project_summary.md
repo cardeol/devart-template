@@ -5,6 +5,7 @@
 - Esteban Garcia Alonso - @estebangarciaalonso (github) - estebanjgarcia@gmail.com
 
 ## Description
+
 This is the age of internet, the age of interaction, the age of selfness, the age of now.
 Things have changed since Carlos and I were kids. The internet now provides us with tons of information, instantly. You don't have to wait for movies, music, news or anything.
 Also the span of attention have shortened. There is so many things trying to get our attention that is much more difficult to focus. The social network has worsened the problem. Before it was just the corporations, nowadays everyone is screaming for attention.
@@ -12,15 +13,17 @@ Also now we have new levels of interactions with technology. The people are movi
 
 We believe Art should follow the same path. 
 
-* It should be accessible to everyone. 
-* It should involve physically and emotionally the consumer/user.
-* It should be really attractive enough to get the attention span and to experiment to keep your focus.
-* It should be instantaneous (also, to keep your focus).
+- It should be accessible to everyone. 
+- It should involve physically and emotionally the consumer/user.
+- It should be really attractive enough to get the attention span and to experiment to keep your focus.
+- It should be instantaneous (also, to keep your focus).
+ 
+### Creating a stream with ASCII Art
 
-So we decided to make the user, the image of the user, the center of the piece, the star. 
-And to do so, we transform the image of the user, in realtime, into an another representation of the image.
+So we decided to create a human interaction experience. 
+Adding a video stream, we transform it into a ASCII representation of the image with different effects.
 
-How to do that? (We'll address each point.)
+### How to do that? 
 
 * It should be accessible to everyone. By using the internet, and no other special technologies other than a webcam. 
 Webcams are almost universal and are included even the cheapest laptops. That, and a good internet browser.
