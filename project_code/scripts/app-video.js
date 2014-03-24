@@ -123,6 +123,15 @@ myApp.controller('mainController', function($scope, $sce) {
         };
     };
 
+    $scope.downloadImage = function() {
+        var dimg = new Image();
+        dimg.src = q.toDataURL();
+        dimg.onload = function() {
+          var url = dimg.src.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+          window.open(url);    
+        }
+    }
+
     $scope.initMatrixSnakes = function() {
         var totalSnakes = $scope.options.width * $scope.options.fResolution,
             i = 0;
@@ -131,7 +140,6 @@ myApp.controller('mainController', function($scope, $sce) {
             $scope.matrixSnakes.push($scope.generateSnake($scope.options.height));
         }
     };
-
 
     $scope.drawChar = function(c, x, y) {
         if (typeof c == "undefined") return;
@@ -153,6 +161,7 @@ myApp.controller('mainController', function($scope, $sce) {
         var fResolution = $scope.options.fResolution;
         var iWidth = parseInt(Math.round($scope.options.width * fResolution));
         var iHeight = parseInt(Math.round($scope.options.height * fResolution));
+        var strThisChar;
 
         oCanvas.width = iWidth;
         oCanvas.height = iHeight;
@@ -184,8 +193,9 @@ myApp.controller('mainController', function($scope, $sce) {
 
         ctx.font = fFontSize + 'pt Courier New';
 
+
         for (var y = 0; y < iHeight; y += 2) {
-            for (var x = iWidth - 1; x >= 0; x--) {
+            for (var x = iWidth - 1; x >= 0; x--) {                 
                 iOffset = (y * iWidth + x) * 4;
                 iRed = oImgData[iOffset];
                 iGreen = oImgData[iOffset + 1];
@@ -194,12 +204,22 @@ myApp.controller('mainController', function($scope, $sce) {
                 bright = (0.299 * iRed + 0.587 * iGreen + 0.114 * iBlue) / 255;
                 cIndex = charsetLengthMinusOne - Math.round(bright * charsetLengthMinusOne);
 
+                var pixel = {
+                    size: fLineHeight,
+                    fillStyle: "#0F0",
+                    x: 0,
+                    y: 0,
+                    c : " "
+                };
+
                 if ($scope.options.opt_invert) {
                     cIndex = charsetLengthMinusOne - cIndex;
                 }
-                var strThisChar = charSet[cIndex];
+                strThisChar = charSet[cIndex];
                 if (strThisChar === undefined)
                     continue;
+
+                pixel.c = strThisChar;
 
                 if ($scope.options.opt_block) {
                     ctx.fillStyle = 'rgba(' + iRed + ',' + iGreen + ',' + iBlue + ',' + iAlpha + ')';
@@ -208,13 +228,17 @@ myApp.controller('mainController', function($scope, $sce) {
                     var index = $scope.matrixSnakes[x].index();
                     var len = $scope.matrixSnakes[x].len;
                     if (index > y && index < y + 4) {
+                        pixel.fillStyle = '#FFF';
                         ctx.fillStyle = '#FFF';
+                        pixel.c = matrixBeginCharList[y % matrixBeginCharList.length];
                         $scope.drawChar(matrixBeginCharList[y % matrixBeginCharList.length], x * fLineHeight, y * fLineHeight);
                         // ctx.fillText(matrixBeginCharList[y % matrixBeginCharList.length], x * fLineHeight, y * fLineHeight);
                     } else if (index > y && index > 0 && ((index - len) < y)) {
                         if ($scope.options.opt_color) {
+                            pixel.fillStyle = 'rgba(' + iRed + ',' + iGreen + ',' + iBlue + ',' + iAlpha + ')';
                             ctx.fillStyle = 'rgba(' + iRed + ',' + iGreen + ',' + iBlue + ',' + iAlpha + ')';
                         } else {
+                            pixel.fillStyle = '#0F0';
                             ctx.fillStyle = '#0F0';
                         }
                         strThisChar = matrixMiddleCharLists[index % matrixMiddleCharLists.length][cIndex];
@@ -222,12 +246,15 @@ myApp.controller('mainController', function($scope, $sce) {
                     }
                 } else {
                     if ($scope.options.opt_color) {
+                        pixel.fillStyle = 'rgba(' + iRed + ',' + iGreen + ',' + iBlue + ',1)';
                         ctx.fillStyle = 'rgba(' + iRed + ',' + iGreen + ',' + iBlue + ',1)';
                     } else {
+                        pixel.fillStyle = '#000';
                         ctx.fillStyle = '#000';
                     }
                     $scope.drawChar(strThisChar, x * fLineHeight, y * fLineHeight);
                 }
+                // $scope.drawPixel(strThisChar, pixel);
             }
         }
         $scope.onComplete();
