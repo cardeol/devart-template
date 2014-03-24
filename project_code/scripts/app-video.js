@@ -35,7 +35,8 @@ myApp.controller('mainController', function($scope, $sce) {
     // var videoCtx = videoCanvas.getContext('2d');
     var fLineHeight;
     var errorCallback = function(e) {
-        console.log('Reeeejected!', e);
+        var message = "ERROR: " + e;
+        alert(message);
     };
 
     navigator.getUserMedia = navigator.getUserMedia ||
