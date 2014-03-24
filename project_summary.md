@@ -18,7 +18,7 @@ We believe Art should follow the same path.
 - It should be really attractive enough to get the attention span and to experiment to keep your focus.
 - It should be instantaneous (also, to keep your focus).
  
-### Creating a stream with ASCII Art
+### Streaming Video with ASCII ART
 
 So we decided to create a human interaction experience. 
 Adding a video stream, we transform it into a ASCII representation of the image with different effects.
