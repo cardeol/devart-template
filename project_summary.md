@@ -33,7 +33,7 @@ So we decided to create a human interaction experience adding a video stream and
 
 <b>Webcams</b> are almost universal and are included even the cheapest laptops. That, and a good internet browser.
  
-It <b>should involve physically and emotionally the user</b>. We involve the user physically by using the their own image (selfies is the term/idiom of the moment). We involve the user emotionally by transforming their image into something that trigger memories.
+It <b>should involve the user physically and emotionally</b>. We involve the user physically by using the their own image (selfies is the term/idiom of the moment). We involve the user emotionally by transforming their image into something that trigger memories.
 
 ### Premises ###
 
