@@ -6,8 +6,10 @@
 
 ## Description
 
-The main idea is the creation of a video stream with ASCII Art using different effects. This is the age of internet, the age of interaction, the age of selfness, the age of now.
+The main idea is the creation of a video stream using ASCII Art with different render effects and provide real time human interaction. This is the age of Internet,  of interaction, of selfness, Today.
+
 Things have changed since we were kids. The internet now provides us with tons of information, instantly. You don't have to wait for movies, music, news or anything.
+
 Also the span of attention have shortened. There is so many things trying to get our attention that is much more difficult to focus. The social network has worsened the problem. Before it was just the corporations, nowadays everyone is screaming for attention.
 Also now we have new levels of interactions with technology. The people are moving from passive roles of just being consumers to active roles and being participants. Computer games have a lot to do with that fact.
 
