@@ -4,7 +4,8 @@ so when you look at the camera you can see a video stream rendered in ASCII.
 
 Our first test was using python, testing with a raspberry pi, then we change to javascript to make it more flexible.
 
-Python first code
+First attempt in Python
+
 ```
 from PIL import Image
 import ImageFont, ImageDraw
