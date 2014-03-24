@@ -20,8 +20,7 @@ We believe Art should follow the same path.
  
 ### Streaming Video with ASCII ART
 
-So we decided to create a human interaction experience. 
-Adding a video stream, we transform it into a ASCII representation of the image with different effects.
+So we decided to create a human interaction experience adding a video stream and process it into a ASCII Representation of the image with different effects.
 
 ### How to do that? 
 
@@ -30,14 +29,14 @@ Webcams are almost universal and are included even the cheapest laptops. That, a
  
 * It should involve physically and emotionally the consumer/user. We involve the user physically by using the their own image (selfies is the term/idiom of the moment). We involve the user emotionally by transforming their image into something that trigger memories.
 
-- The ASCII art it will trigger childhood memories if you were a kid gamer in the 80's or early 90's
+- The ASCII art it will trigger childhood memories if you were a gamer in the 80's or early 90's
 - The Matrix effect will trigger those adolescent/young adult memories of that really cool movies and wishing you were the hero.
 - An artistic effect of your favourite painter.
-* It should be really attractive enough to get the attention span and to experiment.
+- It should be really attractive enough to get the attention span and to experiment.
 Being able to become part, to interact with things you were only able to watch will be lure enough.
 The different options you can apply will keep you playing for a while.
-* It should be instantaneous.
-It is going to be as fast as the machine of the user/museum/display. Everything runs locally and it will be optimized as possible.
+- It should be instantaneous.
+- It is going to be as fast as the machine of the user/museum/display. Everything runs locally and it will be optimized as possible.
 
 
 ![Example Image](https://raw.githubusercontent.com/cardeol/devart-template/master/project_images/womanascii.jpg "ASCII Video rendered in realtime")
