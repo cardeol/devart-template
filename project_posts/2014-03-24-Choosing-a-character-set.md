@@ -1,6 +1,12 @@
 The character set is the set of all ASCII characters which are capable of appearing in the generated ASCII artwork. 
 
-Prior to the conversion process, each character in the specified character set will be analyzed. 
+Prior to the conversion process, each character in the specified character set will be analyzed using an specific font with fixed width. 
+
+We are experimenting using [Web Fonts API](https://developers.google.com/fonts/ "Web Fonts API") with fonts like ["Ubuntu Mono"](https://www.google.com/fonts/specimen/Ubuntu+Mono "Ubuntu Mono") or Courier New.
+
+```
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+``` 
 
 Therefore, it is important that the character set be chosen with care.
 
