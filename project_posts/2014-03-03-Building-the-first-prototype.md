@@ -2,7 +2,7 @@ The main idea is creating a mirror to render video as ASCII characters using Jav
 so when you look at the camera you can see a video stream rendered in ASCII.
 
 
-Our first test was using python, testing with a raspberry pi, then we change to javascript to make it more flexible.
+Our first test was using python, testing with a raspberry pi, then we changed to Javascript to make it more flexible.
 
 First attempt in Python
 
