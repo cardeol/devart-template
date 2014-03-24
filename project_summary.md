@@ -6,7 +6,7 @@
 
 ## Description
 
-The main idea is the creation of a video stream using ASCII Art with different render effects and provide real time human interaction. This is the age of Internet,  of interaction, of selfness, Today.
+The main idea is the creation of a video stream using ASCII Art with different render effects and provide real time human interaction. 
 
 Things have changed since we were kids. The internet now provides us with tons of information, instantly. You don't have to wait for movies, music, news or anything.
 
