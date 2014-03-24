@@ -44,7 +44,7 @@ The different options you can apply will keep you playing for a while.
 
 ## Link to Prototype 
 
-[index.html](https://dl.dropboxusercontent.com/u/11648849/ascii/index.html "index.html")
+[AscMe!](https://dl.dropboxusercontent.com/u/11648849/ascii/index.html "index.html")
 
 ## Links to External Libraries
  
