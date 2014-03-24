@@ -15,7 +15,7 @@ Therefore, it is important that the character set be chosen with care.
  var charSet = palette.split("");
 ```
 
-This means that the first character " " represents the lightest color, and "#" the darker using this formula and scale it to the array lenght.
+This means that the first character " " represents the lightest color, and "#" the darkest using this formula and scale it to the array lenght.
 
 
 ```
