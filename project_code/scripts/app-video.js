@@ -1,4 +1,4 @@
-var myApp = angular.module('app', ['ui.bootstrap', 'ngSanitize']);
+var myApp = angular.module('app', ['ui.bootstrap']);
 
 myApp.controller('mainController', function($scope, $sce) {
     $scope.rendering = false;
