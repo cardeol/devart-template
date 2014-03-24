@@ -20,6 +20,7 @@ Also the span of attention have shortened. There is so many things trying to get
 Also now we have new levels of interactions with technology. The people are moving from passive roles of just being consumers to active roles and being participants. Computer games have a lot to do with that fact.
 
 We believe Art should follow the same path. 
+
 * It should be accessible to everyone. 
 * It should involve physically and emotionally the consumer/user.
 * It should be really attractive enough to get the attention span and to experiment to keep your focus.
@@ -29,14 +30,12 @@ So we decided to make the user, the image of the user, the center of the piece, 
 And to do so, we transform the image of the user, in realtime, into an another representation of the image.
 
 How to do that? (We'll address each point.)
-* It should be accessible to everyone. 
-By using the internet, and no other special technologies other than a webcam. 
-Webcams are almost universal and are included even the cheapest laptops.
-That, and a good internet browser.
+
+* It should be accessible to everyone. By using the internet, and no other special technologies other than a webcam. 
+Webcams are almost universal and are included even the cheapest laptops. That, and a good internet browser.
  
-* It should involve physically and emotionally the consumer/user.
-We involve the user physically by using the their own image (selfies is the term/idiom of the moment).
-We involve the user emotionally by transforming their image into something that trigger memories.
+* It should involve physically and emotionally the consumer/user. We involve the user physically by using the their own image (selfies is the term/idiom of the moment). We involve the user emotionally by transforming their image into something that trigger memories.
+
 - The ASCII art it will trigger childhood memories if you were a kid gamer in the 80's or early 90's
 - The Matrix effect will trigger those adolescent/young adult memories of that really cool movies and wishing you were the hero.
 - An artistic effect of your favourite painter.
