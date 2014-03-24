@@ -50,7 +50,7 @@ It is going to be as fast as the machine of the user/museum/display. Everything 
 ![Example Image](https://raw.githubusercontent.com/cardeol/devart-template/master/project_images/womanascii.jpg "ASCII Video rendered in realtime")
 
 
-## Link to Prototype (best experience in Chrome)
+## Link to Prototype 
 
 [index.html](https://dl.dropboxusercontent.com/u/11648849/ascii/index.html "index.html")
 
