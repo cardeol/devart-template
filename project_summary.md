@@ -53,6 +53,7 @@ It is going to be as fast as the machine of the user/museum/display. Everything 
 ## Link to Prototype 
 
 [AscMe!](https://dl.dropboxusercontent.com/u/11648849/ascii/index.html "index.html")
+The only thing you need is a modern Browser with HTML5 support and, of course, a Webcam :-)
 
 ## Links to External Libraries
  
