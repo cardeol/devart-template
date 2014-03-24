@@ -10,8 +10,6 @@ d88P     888    "Y8888P"     "Y8888P"    888       888   8888888888
 ```                                                                              
                                                                                 
 
-WE NEED NEW LOGO!!!!
-
 ## Authors
 - Carlos De Oliveira - @cardeol (github) - cardeol@gmail.com 
 - Esteban Garcia Alonso - @estebangarciaalonso (github) - estebanjgarcia@gmail.com
