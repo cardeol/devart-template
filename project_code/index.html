@@ -40,11 +40,11 @@
 					<button type="button" class="btn btn-primary btn-xs" ng-model="options.strResolution" btn-radio="'high'">High</button>
 				</div>
 				<h4>Render</h4>
-				<div class="btn-group" ng-show="!rendering">
-					<button type="button" class="btn btn-primary btn-xs" ng-model="rendering" btn-radio="true">Start Rendering</button>
+				<div class="btn-group">
+					<button type="button" class="btn btn-primary btn-xs" ng-model="rendering" btn-radio="true">{{ rendering && 'Start' || 'Stop' }} Rendering</button>
 				</div>
 				<div class="btn-group" ng-show="rendering">
-					<button type="button" class="btn btn-primary btn-xs" ng-model="rendering" btn-radio="false">Stop Rendering</button>
+					<button type="button" class="btn btn-primary btn-xs" ng-show="!rendering" btn-radio="false">Download Image</button>
 				</div>
 			</div>
 			<div class="col-md-8 pull-right">
