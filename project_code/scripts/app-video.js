@@ -163,6 +163,8 @@ myApp.controller('mainController', function($scope, $sce) {
 
         var oImgData = oCtx.getImageData(0, 0, iWidth, iHeight).data;
         var fFontSize = (1.4 / fResolution) * $scope.options.iScale;
+        var iOffset, iRed, iGreen, iBlue, iAlpha, bright, cIndex;
+
         fLineHeight = (1 / fResolution) * $scope.options.iScale;
 
         var charsetLengthMinusOne = (charSet.length - 1);
@@ -180,15 +182,16 @@ myApp.controller('mainController', function($scope, $sce) {
         }
 
         ctx.font = fFontSize + 'pt Courier New';
+
         for (var y = 0; y < iHeight; y += 2) {
             for (var x = iWidth - 1; x >= 0; x--) {
-                var iOffset = (y * iWidth + x) * 4;
-                var iRed = oImgData[iOffset];
-                var iGreen = oImgData[iOffset + 1];
-                var iBlue = oImgData[iOffset + 2];
-                var iAlpha = oImgData[iOffset + 3];
-                var bright = (0.299 * iRed + 0.587 * iGreen + 0.114 * iBlue) / 255;
-                var cIndex = charsetLengthMinusOne - Math.round(bright * charsetLengthMinusOne);
+                iOffset = (y * iWidth + x) * 4;
+                iRed = oImgData[iOffset];
+                iGreen = oImgData[iOffset + 1];
+                iBlue = oImgData[iOffset + 2];
+                iAlpha = oImgData[iOffset + 3];
+                bright = (0.299 * iRed + 0.587 * iGreen + 0.114 * iBlue) / 255;
+                cIndex = charsetLengthMinusOne - Math.round(bright * charsetLengthMinusOne);
 
                 if ($scope.options.opt_invert) {
                     cIndex = charsetLengthMinusOne - cIndex;
