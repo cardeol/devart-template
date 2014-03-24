@@ -1,14 +1,4 @@
-```
-       d8888    .d8888b.     .d8888b.    888b     d888   8888888888
-      d88888   d88P  Y88b   d88P  Y88b   8888b   d8888   888       
-     d88P888   Y88b.        888    888   88888b.d88888   888       
-    d88P 888    "Y888b.     888          888Y88888P888   8888888   
-   d88P  888       "Y88b.   888          888 Y888P 888   888       
-  d88P   888         "888   888    888   888  Y8P  888   888       
- d8888888888   Y88b  d88P   Y88b  d88P   888   "   888   888       
-d88P     888    "Y8888P"     "Y8888P"    888       888   8888888888
-```                                                                              
-                                                                                
+# ASCME                                                                               
 
 ## Authors
 - Carlos De Oliveira - @cardeol (github) - cardeol@gmail.com 
@@ -60,3 +50,16 @@ It is going to be as fast as the machine of the user/museum/display. Everything 
 [Twiiter Bootstrap](http://getbootstrap.com/ "Twitter Bootstrap")
 [W3C Media Capture and Streams](http://dev.w3.org/2011/webrtc/editor/getusermedia.html "W3C Media Captura and Streams")
 [HTML Canvas 2D Context](http://www.w3.org/html/wg/drafts/2dcontext/html5_canvas/ "HTML Canvas 2D Context")
+
+
+```
+       d8888    .d8888b.     .d8888b.    888b     d888   8888888888
+      d88888   d88P  Y88b   d88P  Y88b   8888b   d8888   888       
+     d88P888   Y88b.        888    888   88888b.d88888   888       
+    d88P 888    "Y888b.     888          888Y88888P888   8888888   
+   d88P  888       "Y88b.   888          888 Y888P 888   888       
+  d88P   888         "888   888    888   888  Y8P  888   888       
+ d8888888888   Y88b  d88P   Y88b  d88P   888   "   888   888       
+d88P     888    "Y8888P"     "Y8888P"    888       888   8888888888
+```                                                                              
+ 
