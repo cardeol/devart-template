@@ -6,7 +6,7 @@
 
 ## Description
 
-The main is using a front a camera and display to render an ASCII Art video stream with different effects providing a real time human interaction. 
+The main is using a Front Camera and display to render an ASCII Art video stream with different effects providing a real time human interaction. 
 
 Things have changed since we were kids. The internet now provides us with tons of information, instantly. You don't have to wait for movies, music, news or anything.
 
