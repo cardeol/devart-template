@@ -1,14 +1,20 @@
-This project is being created as a tribute to the old-fashioned ASCII Art, rendering a video stream using a Webcam converting into ASCII symbols using Angularjs and HTML5. The main idea is using a landscape vertical TV with a web browser and a camera to provide a kind of mirror view with an ASCII perspective.
+This project was originally thought as a tribute to the old-fashioned ASCII Art, rendering a video stream using a Webcam converting into ASCII symbols using Angularjs and HTML5. 
+
+The main idea is using a landscape vertical TV with a web browser and a camera to provide a kind of mirror view with an ASCII perspective.
 
 ## ASCII Codes
 
 ASCII stand for "American Standard Code for Information Interchange".
 
-This Standard was created by the American National Standards Institute. It is a table of numbers and their corresponding symbols used in computer typography. It covers letters, numbers and certain control codes as TABS or ENTER.
+This Standard was created by the American National Standards Institute. 
+It is a table of numbers and their corresponding symbols used in computer typography. 
+It covers letters, numbers and certain control codes as TABS or ENTER.
 
 ### ASCII Art
 
-Essentially, ASCII art is creating graphics from ASCII codes, motivated by a need in the old days when most computers din't even display graphics. The term is also loosely used to refer to text based visual art in general. ASCII art can be created with any text editor, and is often used with free-form languages. Most examples of ASCII art require a fixed-width font (non-proportional fonts, as on a traditional typewriter) such as Courier for presentation. (Wikipedia)
+Essentially, ASCII art is creating graphics from ASCII codes, motivated by a need in the old days when most computers din't even display graphics. 
+The term is also loosely used to refer to text based visual art in general. ASCII art can be created with any text editor, and is often used with free-form languages. 
+Most examples of ASCII art require a fixed-width font (non-proportional fonts, as on a traditional typewriter) such as Courier for presentation. (Wikipedia)
 
 ```
                    .'\   /`.
