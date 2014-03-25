@@ -30,4 +30,4 @@ Absolute dream. Possible only if we managed to the the warhol first and simplifi
 
 ### Also needs white walls!!! (even on the video there are white walls!!!) ###
 
-(It would be a really cool way to learn about art if we could do a render of different artists and see how would you look like you were drawn today)
+(It would be a really cool way to learn about art if we could do a render of different artists and see how would you look like you were drawn today) 
