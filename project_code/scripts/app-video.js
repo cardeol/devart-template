@@ -2,6 +2,7 @@ var myApp = angular.module('app', ['ui.bootstrap']);
 
 myApp.controller('mainController', function($scope, $sce) {
     $scope.rendering = false;
+    $scope.imagedata = "javascript:;";
     $scope.options = {
         iScale: 2,
         flipH: true,
@@ -127,8 +128,9 @@ myApp.controller('mainController', function($scope, $sce) {
         var dimg = new Image();
         dimg.src = q.toDataURL();
         dimg.onload = function() {
-          var url = dimg.src.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
-          window.open(url);    
+            $scope.imagedata = dimg.src;
+            var url = dimg.src.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+            window.open(url);
         }
     }
 
@@ -173,7 +175,7 @@ myApp.controller('mainController', function($scope, $sce) {
 
         var oImgData = oCtx.getImageData(0, 0, iWidth, iHeight).data;
         var fFontSize = (1.4 / fResolution) * $scope.options.iScale;
-        var iOffset, iRed, iGreen, iBlue, iAlpha, bright, cIndex;
+        var iOffset, iRed, iGreen, iBlue, iAlpha, luminance, cIndex;
 
         fLineHeight = (1 / fResolution) * $scope.options.iScale;
 
@@ -195,22 +197,14 @@ myApp.controller('mainController', function($scope, $sce) {
 
 
         for (var y = 0; y < iHeight; y += 2) {
-            for (var x = iWidth - 1; x >= 0; x--) {                 
+            for (var x = iWidth - 1; x >= 0; x--) {
                 iOffset = (y * iWidth + x) * 4;
                 iRed = oImgData[iOffset];
                 iGreen = oImgData[iOffset + 1];
                 iBlue = oImgData[iOffset + 2];
                 iAlpha = oImgData[iOffset + 3];
-                bright = (0.299 * iRed + 0.587 * iGreen + 0.114 * iBlue) / 255;
-                cIndex = charsetLengthMinusOne - Math.round(bright * charsetLengthMinusOne);
-
-                var pixel = {
-                    size: fLineHeight,
-                    fillStyle: "#0F0",
-                    x: 0,
-                    y: 0,
-                    c : " "
-                };
+                luminance = (0.299 * iRed + 0.587 * iGreen + 0.114 * iBlue);
+                cIndex = charsetLengthMinusOne - Math.round(luminance * charsetLengthMinusOne / 255);
 
                 if ($scope.options.opt_invert) {
                     cIndex = charsetLengthMinusOne - cIndex;
@@ -219,7 +213,6 @@ myApp.controller('mainController', function($scope, $sce) {
                 if (strThisChar === undefined)
                     continue;
 
-                pixel.c = strThisChar;
 
                 if ($scope.options.opt_block) {
                     ctx.fillStyle = 'rgba(' + iRed + ',' + iGreen + ',' + iBlue + ',' + iAlpha + ')';
@@ -228,17 +221,13 @@ myApp.controller('mainController', function($scope, $sce) {
                     var index = $scope.matrixSnakes[x].index();
                     var len = $scope.matrixSnakes[x].len;
                     if (index > y && index < y + 4) {
-                        pixel.fillStyle = '#FFF';
                         ctx.fillStyle = '#FFF';
-                        pixel.c = matrixBeginCharList[y % matrixBeginCharList.length];
                         $scope.drawChar(matrixBeginCharList[y % matrixBeginCharList.length], x * fLineHeight, y * fLineHeight);
                         // ctx.fillText(matrixBeginCharList[y % matrixBeginCharList.length], x * fLineHeight, y * fLineHeight);
                     } else if (index > y && index > 0 && ((index - len) < y)) {
                         if ($scope.options.opt_color) {
-                            pixel.fillStyle = 'rgba(' + iRed + ',' + iGreen + ',' + iBlue + ',' + iAlpha + ')';
                             ctx.fillStyle = 'rgba(' + iRed + ',' + iGreen + ',' + iBlue + ',' + iAlpha + ')';
                         } else {
-                            pixel.fillStyle = '#0F0';
                             ctx.fillStyle = '#0F0';
                         }
                         strThisChar = matrixMiddleCharLists[index % matrixMiddleCharLists.length][cIndex];
@@ -246,15 +235,14 @@ myApp.controller('mainController', function($scope, $sce) {
                     }
                 } else {
                     if ($scope.options.opt_color) {
-                        pixel.fillStyle = 'rgba(' + iRed + ',' + iGreen + ',' + iBlue + ',1)';
                         ctx.fillStyle = 'rgba(' + iRed + ',' + iGreen + ',' + iBlue + ',1)';
                     } else {
-                        pixel.fillStyle = '#000';
-                        ctx.fillStyle = '#000';
+                        luminance = 255 - luminance;
+                        // ctx.fillStyle = 'rgba(' + luminance + ',' + luminance + ',' + luminance + ',1)';
+                        ctx.fillStyle = "#000";
                     }
                     $scope.drawChar(strThisChar, x * fLineHeight, y * fLineHeight);
                 }
-                // $scope.drawPixel(strThisChar, pixel);
             }
         }
         $scope.onComplete();

@@ -39,10 +39,10 @@
 				</div>
 				<h4>Render</h4>
 				<div class="btn-group">
-					<button type="button" class="btn btn-primary btn-xs" ng-model="rendering" btn-radio="true">{{ rendering && 'Stop' || 'Start' }} Rendering</button>
+					<label type="button" class="btn btn-primary btn-xs" ng-model="rendering" btn-checkbox>{{ rendering && 'Stop' || 'Start' }} Rendering</label>
 				</div>
 				<div class="btn-group" ng-show="rendering">
-					<button type="button" class="btn btn-primary btn-xs" ng-show="!rendering" btn-radio="false">Download Image</button>
+					<a type="button" download="capture.png" href="{{ imagedata }}" class="btn btn-primary btn-xs" ng-click="downloadImage()">Download</a>
 				</div>
 			</div>
 			<div class="col-md-8 pull-right">
