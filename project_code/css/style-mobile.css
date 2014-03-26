@@ -1,0 +1,28 @@
+body {
+	font-family: 'Ubuntu Mono';
+}
+
+#noflash,#nocamera {
+	display: none; font-size: 18px; font-weight: bold;
+}
+
+img.responsive {
+	width: 100%;
+	height: auto;
+}
+
+.fliph {
+	-moz-transform: scale(-1, 1);
+	-webkit-transform: scale(-1, 1);
+	-o-transform: scale(-1, 1);
+	transform: scale(-1, 1);
+	filter: FlipH;
+}
+
+
+.matrix {
+	background-color: black !important;
+}
+.white {
+	background-color: white !important;
+}

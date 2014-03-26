@@ -1,4 +1,4 @@
-var myApp = angular.module('app', ['ui.bootstrap']);
+var myApp = angular.module('app', ['ui.bootstrap', "mobile-angular-ui", "mobile-angular-ui.touch", "mobile-angular-ui.scrollable"]);
 
 myApp.controller('mainController', function($scope, $sce) {
     $scope.rendering = false;
@@ -164,20 +164,20 @@ myApp.controller('mainController', function($scope, $sce) {
         var iWidth = parseInt(Math.round($scope.options.width * fResolution));
         var iHeight = parseInt(Math.round($scope.options.height * fResolution));
         var strThisChar;
-
-        oCanvas.width = iWidth;
-        oCanvas.height = iHeight;
-        oCanvas.style.display = "none";
-        oCanvas.style.width = iWidth;
-        oCanvas.style.height = iHeight;
+        var renderContainer = document.getElementById('renderContainer');
+        ctx.canvas.width  = renderContainer.offsetWidth;
+        ctx.canvas.height = renderContainer.offsetHeight;
+        var widthCorrectionIndex = ctx.canvas.width / 800;
+        var heightCorrectionIndex = ctx.canvas.height / 600;
+        var iHeight = parseInt(Math.round($scope.options.height * fResolution));
         oCtx.drawImage(video, 0, 0, iWidth, iHeight);
 
 
         var oImgData = oCtx.getImageData(0, 0, iWidth, iHeight).data;
-        var fFontSize = (1.4 / fResolution) * $scope.options.iScale;
+        var fFontSize = (1 / fResolution) * $scope.options.iScale * widthCorrectionIndex;
         var iOffset, iRed, iGreen, iBlue, iAlpha, luminance, cIndex;
 
-        fLineHeight = (1 / fResolution) * $scope.options.iScale;
+        fLineHeight = (1 / fResolution) * $scope.options.iScale * heightCorrectionIndex;
 
         var charsetLengthMinusOne = (charSet.length - 1);
 
@@ -186,11 +186,11 @@ myApp.controller('mainController', function($scope, $sce) {
                 value.step();
             });
             ctx.fillStyle = 'rgba(0,0,0,.30)';
-            ctx.fillRect(0, 0, width, height);
+            ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
             ctx.fillStyle = '#0F0';
         } else if (!$scope.options.opt_block) {
             ctx.fillStyle = currentBackColor;
-            ctx.fillRect(0, 0, width, height);
+            ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         }
 
         ctx.font = fFontSize + 'pt Courier New';
@@ -241,7 +241,7 @@ myApp.controller('mainController', function($scope, $sce) {
                         // ctx.fillStyle = 'rgba(' + luminance + ',' + luminance + ',' + luminance + ',1)';
                         ctx.fillStyle = "#000";
                     }
-                    $scope.drawChar(strThisChar, x * fLineHeight, y * fLineHeight);
+                    $scope.drawChar(strThisChar, x * fLineHeight * 1.1, y * fLineHeight);
                 }
             }
         }
